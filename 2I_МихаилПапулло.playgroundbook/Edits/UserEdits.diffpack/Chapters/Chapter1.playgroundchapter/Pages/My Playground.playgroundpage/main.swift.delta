@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+//1. Функция, которая определяет чётное число или нет.
+
+
+func checkNumber(a: Int) -&gt; Int {
+    return a % 2
+}
+var myNumber = checkNumber(a: 9)
+if myNumber == 0 {print("1. Число четное")}
+else {print("1. Число нечетное")}
+
+
+
+//2. Функция, которая определяет, делится ли число на 3. 
+
+func checkNumber3(b: Int) -&gt; Int {
+    return b % 3
+}
+    var threeNumber = checkNumber3(b: 9)
+if threeNumber == 0 {print("2. Число делится на 3 без остатка")}
+else {print("2. Число не делится на 3 без остатка")}
+
+
+//3. Создать возрастающий массив из 100 чисел.
+
+var massive = Array (1...100)
+print("3. Возрастающий массив от  1 до 100:")
+print(massive)
+
+    //4. Удалить все четные числа и те, которые не делятся на 3.
+
+print("4. Все нечетные числа массива и числа, которые делятся на три:")
+var oddNumbers = massive.filter({$0 % 2 &gt; 0})
+var fNumbers = massive.filter({$0 % 3 == 0})
+print(fNumbers)
+
+    //5. Число Фибоначчи
+print("5. 100 чисел ряда Фибоначчи")
+func fibonacciMassive(_ n: Int) -&gt; [Double] {
+    var fibonacci: [Double] = [1, 1]
+    (2...n).forEach{ i in
+        fibonacci.append(fibonacci[i - 1] + fibonacci[i - 2])
+    }
+return fibonacci
+}
+print(fibonacciMassive(100))
+
+
+    //6. Заполнить массив из 100 элементов различными простыми числами. 
+
+print("6. 100 простых чисел")
+func primeNumbers(arrayPassed: [Int]) -&gt; [Int] {
+    var primes: [Int] = []
+    var newArr = arrayPassed
+    while let newP = newArr.first {
+        primes.append(newP)
+        newArr = newArr.filter { $0 % newP != 0 }
+    }
+    return primes
+}
+print(primeNumbers(arrayPassed: Array(2...100)))
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1585}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</string>
+</dict>
+</plist>
