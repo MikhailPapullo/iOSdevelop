@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+//1. Описать несколько структур – любой легковой автомобиль SportCar и любой грузовик TrunkCar.
+//2. Структуры должны содержать марку авто, год выпуска, объем багажника/кузова, запущен ли двигатель, открыты ли окна, заполненный объем багажника.
+//3. Описать перечисление с возможными действиями с автомобилем: запустить/заглушить двигатель, открыть/закрыть окна, погрузить/выгрузить из кузова/багажника груз определенного объема.
+//4. Добавить в структуры метод с одним аргументом типа перечисления, который будет менять свойства структуры в зависимости от действия.
+//5. Инициализировать несколько экземпляров структур. Применить к ним различные действия.
+//6. Вывести значения свойств экземпляров в консоль.
+
+
+
+enum windowsState {
+    case opened
+    case closed
+}
+enum engineState {
+    case running
+    case shut
+}
+enum loadUsed {
+    case full
+    case empty
+}
+struct vehicleState {
+    let brand: String
+    let yearModel: Int
+    var trunkCapacity: Int
+    var loadUsed: loadUsed {
+        willSet {
+            if newValue == .full {
+                print("У автомобиль \(brand) произведена полная загрузка.")
+            }else {print("у автомобиль \(brand) произведена полная разгрузка.")}
+        }
+    }
+    var engineState : engineState{
+        willSet {
+            if newValue == .running {
+                print("У \(brand) был произведен запуск двигателя.")
+            }
+        else {print("У \(brand) была произведена остановка двигателя.")}
+        }
+    }
+    var windowsState : windowsState {
+        willSet {
+            if newValue == .opened {
+                print("У \(brand) произвдено открытие окон.")
+        }else {
+            print("У \(brand) произведено закрытие окон.")}
+        }
+    }
+    var trunkCapacityUsed: Int
+}
+var sportsCar = vehicleState(brand: "Lada Samara", yearModel: 1990, trunkCapacity: 500, loadUsed: .full, engineState: .running, windowsState: .closed, trunkCapacityUsed: 100)
+var truck = vehicleState(brand: "URAL", yearModel: 1980, trunkCapacity: 10000, loadUsed: .empty, engineState: .shut, windowsState: .opened, trunkCapacityUsed: 0)
+print("Легковой автомобиль \(sportsCar.brand) \(sportsCar.yearModel) года выпуска загружен на \(sportsCar.trunkCapacityUsed) из \(sportsCar.trunkCapacity) литров полезного объёма. После проверки:")
+sportsCar.windowsState = .opened
+sportsCar.engineState = .shut
+sportsCar.loadUsed = .empty
+
+print("Грузовой автомобиль \(truck.brand) \(truck.yearModel) года выпуска загружен на \(truck.trunkCapacityUsed) из \(truck.trunkCapacity) литров полезного объёма. После проверки:")
+truck.windowsState = .closed
+truck.engineState = .running
+truck.loadUsed = .full
+
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 2662}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</string>
+</dict>
+</plist>
