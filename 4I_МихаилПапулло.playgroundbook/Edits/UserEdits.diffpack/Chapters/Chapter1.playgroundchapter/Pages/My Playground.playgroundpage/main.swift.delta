@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>//1. Описать класс Car c общими свойствами автомобилей и пустым методом действия по аналогии с прошлым заданием.
+//2. Описать пару его наследников trunkCar и sportСar. Подумать, какими отличительными свойствами обладают эти автомобили. Описать в каждом наследнике специфичные для него свойства.
+//3. Взять из прошлого урока enum с действиями над автомобилем. Подумать, какие особенные действия имеет trunkCar, а какие – sportCar. Добавить эти действия в перечисление.
+//4. В каждом подклассе переопределить метод действия с автомобилем в соответствии с его классом.
+//5. Создать несколько объектов каждого класса. Применить к ним различные действия.
+//6. Вывести значения свойств экземпляров в консоль.
+    
+
+
+class car {
+    let brand: String
+    let year: Int
+    init (brand: String, year: Int) {
+        self.brand = brand
+        self.year = year
+    }
+}
+var car1 = car(brand: "Lada Samara", year: 1990)
+var car2 = car(brand: "Lada Sputnik", year: 1985)
+print(car1.brand, car1.year)
+print(car2.brand, car2.year)
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 1017}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
