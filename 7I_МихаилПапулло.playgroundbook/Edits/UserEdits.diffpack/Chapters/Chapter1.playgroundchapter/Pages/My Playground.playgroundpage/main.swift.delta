@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>struct Item {
+    var wheels: Int
+    var ageLimit: Int
+    let bicycle: Bicycle
+}
+struct Bicycle {
+    let brand: String
+}
+enum KidsBicycleError: Error {
+    case invalidSelection
+    case tooOld(ageCorrection: Int)
+    case notARightSize(sizeCorrection: Int)
+}
+class KidsBicycle {
+    var bicycles = [
+        "Balance Bike": Item(wheels: 10, ageLimit: 3, bicycle: Bicycle(brand: "Balance Bike")),
+        "12 Inch Bike": Item(wheels: 12, ageLimit: 4, bicycle: Bicycle(brand: "12 Inch Bike")),
+        "14 Inch Bike": Item(wheels: 14, ageLimit: 5, bicycle: Bicycle(brand: "14 Inch Bike")), 
+        "16 Inch Bike": Item(wheels: 16, ageLimit: 6, bicycle: Bicycle(brand: "16 Inch Bike")),
+        "18 Inch Bike": Item(wheels: 18, ageLimit: 7, bicycle: Bicycle(brand: "18 Inch Bike")),  
+    ]
+    var ageEntered = 7
+    var wheelsEntered = 16
+    func bikeReady(bikeBrand brand: String) throws -&gt; Bicycle {
+        guard let item = bicycles[brand] else {
+            throw KidsBicycleError.invalidSelection
+        }
+        guard item.ageLimit &gt;= ageEntered else {
+            throw KidsBicycleError.tooOld(ageCorrection: item.ageLimit)
+        }
+        guard item.wheels == wheelsEntered else {
+            throw KidsBicycleError.notARightSize(sizeCorrection: item.wheels) 
+        }       
+        var newItem = item
+        bicycles[brand] = newItem
+        return (newItem.bicycle)
+    }
+}
+
+let kidsBicycle = KidsBicycle()
+
+do {
+    let sell1 = try kidsBicycle.bikeReady(bikeBrand: "18 Inch Bike")
+} catch KidsBicycleError.invalidSelection {
+    print("Такого товара не существует")
+} catch KidsBicycleError.tooOld(let ageCorrection) {
+    print("Данный тип велосипеда для детей до \(ageCorrection)")
+} catch KidsBicycleError.notARightSize(let sizeCorrection) {
+    print("Размер данного детского велосипеда \(sizeCorrection) д.")
+} catch let error {
+    print(error)
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1876}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
