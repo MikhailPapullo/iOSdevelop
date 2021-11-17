@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+enum load {
+case loaded, unloaded
+}
+class car {
+    let brand: String
+    let year: Int
+    init (brand: String, year: Int) {
+        self.brand = brand
+        self.year = year
+    }
+}
+class passenger: car {
+    var passengerSeats: Int
+    var seatsState: load
+    init (brand: String, year: Int, passengerSeats: Int, seatsState: load) {
+        self.passengerSeats = passengerSeats
+        self.seatsState = seatsState
+        super.init(brand: brand, year: year)
+    }
+    func occupiedSeats(){
+        if seatsState == .loaded {
+            print("Занят")
+        }else {
+            print("Свободен")
+        }
+    }
+}
+class truck: car {
+    var truckCargo: Double
+    var cargoState: load
+    init(brand: String, year: Int, truckCargo: Double, cargoState: load) {
+        self.truckCargo = truckCargo
+        self.cargoState = cargoState
+        super.init(brand: brand, year: year)
+    }
+    func loadedCargo(){
+        if cargoState == .loaded {
+            print("Загружен")
+        }else {
+            print("Пустой")
+        }
+    }
+}
+var passengerCar1 = passenger(brand: "Lada Sputnik", year: 1985, passengerSeats: 5, seatsState: .loaded)
+var truckCar1 = truck(brand: "Kamaz 55111", year: 1995, truckCargo: 13, cargoState: .unloaded)
+var passengerCar2 = passenger(brand: "Volga 3110", year: 1997, passengerSeats: 5, seatsState: .unloaded)
+var truckCar2 = truck(brand: "Uaz 3303", year: 1995, truckCargo: 0.8, cargoState: .loaded)
+print(passengerCar1.brand, "Год выпуска:", passengerCar1.year, "Количество сидячих мест:", passengerCar1.passengerSeats)
+passengerCar1.occupiedSeats()
+print(passengerCar2.brand, "Год выпуска:", passengerCar2.year, "Количество сидячих мест:", passengerCar2.passengerSeats)
+passengerCar2.occupiedSeats()
+print(truckCar1.brand, "Год выпуска:", truckCar1.year, "Грузоподъёмность, тонн:", truckCar1.truckCargo)
+truckCar1.loadedCargo()
+print(truckCar2.brand, "Год выпуска:", truckCar2.year, "Грузоподъёмность, тонн:", truckCar2.truckCargo)
+truckCar2.loadedCargo()
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 2014}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

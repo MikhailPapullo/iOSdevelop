@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+
+class car {
+    let brand: String
+    let year: Int
+    init (brand: String, year: Int) {
+        self.brand = brand
+        self.year = year
+    }
+}
+class passenger: car {
+    var passengerSeats: Int
+    init (brand: String, year: Int, passengerSeats: Int) {
+        self.passengerSeats = passengerSeats
+        super.init(brand: brand, year: year)
+    }
+}
+class truck: car {
+    var truckCargo: Double
+    init(brand: String, year: Int, truckCargo: Double) {
+        self.truckCargo = truckCargo
+        super.init(brand: brand, year: year)
+    }
+}
+var passengerCar1 = passenger(brand: "Lada Sputnik", year: 1985, passengerSeats: 5)
+var truckCar1 = truck(brand: "Kamaz 55111", year: 1995, truckCargo: 13)
+print(passengerCar1.brand, "Год выпуска:", passengerCar1.year, "Количество сидячих мест:", passengerCar1.passengerSeats)
+print(truckCar1.brand, "Год выпуска:", truckCar1.year, "Грузоподъёмность, тн:", truckCar1.truckCargo)
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 945}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
